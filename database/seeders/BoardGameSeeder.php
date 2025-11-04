@@ -13,6 +13,7 @@ class BoardGameSeeder extends Seeder
      */
     public function run(): void
     {
+        Genre::factory(5)->hasBoardGames(5)->create();
         BoardGame::factory(25)->create();
     }
 }

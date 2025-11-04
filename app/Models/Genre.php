@@ -12,4 +12,8 @@ class Genre extends Model
     protected $fillable = [
         'name',
     ];
+    public function boardGames()
+    {
+        return $this->hasMany(BoardGame::class);
+    }
 }

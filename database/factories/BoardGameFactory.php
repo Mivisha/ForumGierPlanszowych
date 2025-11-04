@@ -27,7 +27,7 @@ class BoardGameFactory extends Factory
             'year_published'=> fake()->numberBetween(2000,2025),
             'publisher'=> fake()->company(),
             'rating'=> fake()->randomFloat(2,0,10),
-    
+            'genre_id'=>Genre::factory(),
         ];
     }
 }
