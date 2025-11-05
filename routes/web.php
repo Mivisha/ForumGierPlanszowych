@@ -13,6 +13,8 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
-
+//Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
+Route::resource('genres', GenreController::class)->only([
+    'index',
+]);
 require __DIR__.'/auth.php';

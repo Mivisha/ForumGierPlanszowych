@@ -1,5 +1,5 @@
-<x-app-layout>
-<div class="container mt-5">
+<x-app-layout :title="__('Genres')">
+    <div class="container mt-5">
     <h2> Lista gatunków </h2>
 
     <table class="table table-striped">

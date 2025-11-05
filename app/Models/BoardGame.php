@@ -19,4 +19,8 @@ class BoardGame extends Model
         'playtime_max',
         'age_recommendation',
     ];
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class);
+    }
 }
