@@ -38,12 +38,11 @@
     <div>
         <h1 class="text-2xl font-bold">{{ __('translation.navigation.genres') }}</h1>
     </div>
-    
     @can('create', App\Models\Genre::class)
         <flux:button 
             variant="primary" 
             icon="plus"
-            :href="route('genres.create')" 
+            href="{{ route('genres.create') }}" 
             wire:navigate>
             {{ __('genres.actions.create') }}
         </flux:button>

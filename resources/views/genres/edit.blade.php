@@ -5,7 +5,7 @@
             @method('PUT')
 
             <div class="mb-6">
-                <flux:heading>{{ __('Edytuj gatunek') }}</flux:heading>
+                <flux:heading>{{ __('genres.messages.update') }}</flux:heading>
             </div>
 
             <flux:field>

@@ -4,7 +4,7 @@
             @csrf
 
             <div class="mb-6">
-                <flux:heading>{{ __('Dodać nowy gatunek') }}</flux:heading>
+                <flux:heading>{{ __('Dodaj nowy gatunek') }}</flux:heading>
             </div>
 
             <flux:field>

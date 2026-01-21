@@ -31,7 +31,7 @@ class GenreController extends Controller
             $request->selected
         );
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */

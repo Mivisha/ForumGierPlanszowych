@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('age_recommendation');
             $table->integer('year_published');
             $table->string('publisher');
-            $table->float('rating')->default(0);
+            $table->decimal('rating', 3, 2)->default(0);
             $table->timestamps();
         });
     }

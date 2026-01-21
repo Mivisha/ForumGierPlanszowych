@@ -4,56 +4,56 @@
             @csrf
 
             <div class="mb-6">
-                <flux:heading>{{ __('Create Board Game') }}</flux:heading>
+                <flux:heading>{{ __('boardgames.form.create_title') }}</flux:heading>
             </div>
 
             <flux:field>
                 <flux:label>{{ __('boardgames.attributes.title') }}</flux:label>
-                <flux:input name="title" placeholder="{{ __('Enter board game title') }}" value="{{ old('title') }}" />
+                <flux:input name="title" placeholder="{{ __('boardgames.placeholders.title') }}" value="{{ old('title') }}" />
                 <flux:error name="title" />
             </flux:field>
 
             <flux:field>
                 <flux:label>{{ __('boardgames.attributes.description') }}</flux:label>
-                <flux:textarea name="description" placeholder="{{ __('Enter board game description') }}">{{ old('description') }}</flux:textarea>
+                <flux:textarea name="description" placeholder="{{ __('boardgames.placeholders.description') }}">{{ old('description') }}</flux:textarea>
                 <flux:error name="description" />
             </flux:field>
 
             <flux:field>
                 <flux:label>{{ __('boardgames.attributes.age_recommendation') }}</flux:label>
-                <flux:input type="number" name="age_recommendation" placeholder="{{ __('Minimum age') }}" value="{{ old('age_recommendation') }}" />
+                <flux:input type="number" name="age_recommendation" placeholder="{{ __('boardgames.placeholders.age_recommendation') }}" value="{{ old('age_recommendation') }}" />
                 <flux:error name="age_recommendation" />
             </flux:field>
 
             <div class="grid grid-cols-2 gap-4">
                 <flux:field>
-                    <flux:label>Min Players</flux:label>
-                    <flux:input type="number" name="min_players" placeholder="1" value="{{ old('min_players') }}" />
+                    <flux:label>{{ __('boardgames.attributes.min_players') }}</flux:label>
+                    <flux:input type="number" name="min_players" placeholder="{{ __('boardgames.placeholders.min_players') }}" value="{{ old('min_players') }}" />
                     <flux:error name="min_players" />
                 </flux:field>
 
                 <flux:field>
-                    <flux:label>Max Players</flux:label>
-                    <flux:input type="number" name="max_players" placeholder="2" value="{{ old('max_players') }}" />
+                    <flux:label>{{ __('boardgames.attributes.max_players') }}</flux:label>
+                    <flux:input type="number" name="max_players" placeholder="{{ __('boardgames.placeholders.max_players') }}" value="{{ old('max_players') }}" />
                     <flux:error name="max_players" />
                 </flux:field>
             </div>
 
             <flux:field>
-                <flux:label>Play Time (minutes)</flux:label>
-                <flux:input type="number" name="play_time_minutes" placeholder="0" value="{{ old('play_time_minutes') }}" />
+                <flux:label>{{ __('boardgames.attributes.play_time_minutes') }}</flux:label>
+                <flux:input type="number" name="play_time_minutes" placeholder="{{ __('boardgames.placeholders.play_time_minutes') }}" value="{{ old('play_time_minutes') }}" />
                 <flux:error name="play_time_minutes" />
             </flux:field>
 
             <flux:field>
-                <flux:label>Year Published</flux:label>
-                <flux:input type="number" name="year_published" placeholder="{{ date('Y') }}" value="{{ old('year_published') }}" />
+                <flux:label>{{ __('boardgames.attributes.year_published') }}</flux:label>
+                <flux:input type="number" name="year_published" placeholder="{{ __('boardgames.placeholders.year_published') }}" value="{{ old('year_published') }}" />
                 <flux:error name="year_published" />
             </flux:field>
 
             <flux:field>
-                <flux:label>Publisher</flux:label>
-                <flux:input name="publisher" placeholder="Publisher name" value="{{ old('publisher') }}" />
+                <flux:label>{{ __('boardgames.attributes.publisher') }}</flux:label>
+                <flux:input name="publisher" placeholder="{{ __('boardgames.placeholders.publisher') }}" value="{{ old('publisher') }}" />
                 <flux:error name="publisher" />
             </flux:field>
 
@@ -77,8 +77,8 @@
             </flux:field>
 
             <div class="flex justify-end gap-4 mt-6">
-                <flux:button href="{{ route('board-games.index') }}" variant="ghost">{{ __('Cancel') }}</flux:button>
-                <flux:button variant="primary" type="submit">{{ __('Save') }}</flux:button>
+                <flux:button href="{{ route('board-games.index') }}" variant="ghost">{{ __('boardgames.form.cancel') }}</flux:button>
+                <flux:button variant="primary" type="submit">{{ __('boardgames.form.save') }}</flux:button>
             </div>
         </form>
     </section>
