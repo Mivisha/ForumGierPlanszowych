@@ -6,6 +6,7 @@
 }" 
      @flash-message.window="show = true; message = $event.detail[0]?.message || $event.detail.message; type = $event.detail[0]?.type || $event.detail.type || 'success'; setTimeout(() => show = false, 5000)"
      x-show="show" 
+     x-cloak
      x-init="if(show) setTimeout(() => show = false, 5000)"
      :class="{
          'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200': type === 'success',
@@ -48,3 +49,6 @@
         </flux:button>
     @endcan
 </div>
+
+{{-- Modal for viewing board game details --}}
+@livewire('board-games.view-board-game-modal')

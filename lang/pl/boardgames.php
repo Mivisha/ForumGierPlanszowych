@@ -15,16 +15,19 @@
                 'play_time_minutes' => 'Czas gry (minuty)',
                 'year_published' => 'Rok wydania',
                 'publisher' => 'Wydawnictwo',
+                'minutes' => 'minut',
         ],
         'actions' => [
             'create' => 'Dodać nową grę',
             'edit' => 'Edytować',
             'delete' => 'Usunąć',
+            'view' => 'Zobacz szczegóły',
         ],
             'form' => [
                 'create_title' => 'Dodaj nową grę planszową',
                 'save' => 'Zapisz',
                 'cancel' => 'Anuluj',
+                'close' => 'Zamknij',
             ],
             'placeholders' => [
                 'title' => 'Wpisz tytuł gry planszowej',

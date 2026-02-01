@@ -51,7 +51,7 @@
                     </div>
                 @empty
                     <div class="md:col-span-2 lg:col-span-4 text-center py-12">
-                        <p class="text-gray-500 dark:text-gray-400">{{ __('Нема оцінених ігор') }}</p>
+                        <p class="text-gray-500 dark:text-gray-400">{{ __('Niema ocenionych gier') }}</p>
                     </div>
                 @endforelse
             </div>
