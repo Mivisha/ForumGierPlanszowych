@@ -7,6 +7,9 @@ use App\Livewire\Users\UserTable;
 use App\Livewire\BoardGames\BoardGameTable;
 use App\Livewire\Genres\GenreTable;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\FavoriteController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,6 +43,17 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/genres/{genre}', [GenreController::class, 'update'])->name('genres.update');
     Route::delete('/genres/{genre}', [GenreController::class, 'destroy'])->name('genres.destroy');
 
+    Route::get('/posts/create', [App\Http\Controllers\PostController::class, 'create'])->name('posts.create');
+    Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
+
+    Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+
+    Route::middleware('auth')->group(function () {
+        Route::post('/favorites/{boardGame}/toggle', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
+        Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
+    });
     // Route::resource('genres', GenreTable::class)->only([
     //     'index',
     //     'create',

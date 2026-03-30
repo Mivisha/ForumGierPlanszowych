@@ -25,6 +25,8 @@
         ],
             'form' => [
                 'create_title' => 'Dodaj nową grę planszową',
+                'edit_title' => 'Edytuj grę planszową',
+                'choose_genres' => 'Wybierz gatunki',
                 'save' => 'Zapisz',
                 'cancel' => 'Anuluj',
                 'close' => 'Zamknij',

@@ -118,26 +118,37 @@ final class UserTable extends PowerGridComponent
 
     public function actions(User $user): array
     {
+        $actionButtonClasses = 'pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700';
+
         return [
             Button::add('assignAdminRoleAction')
-                ->slot('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3 3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zm7 14c-1.1 0-2 .9-2 2v3h-2v-3c0-1.1-.9-2-2-2s-2 .9-2 2v3H9v-3c0-1.1-.9-2-2-2s-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6c0-1.1-.9-2-2-2z"/></svg>')
+                ->slot('<svg class="w-[23px] h-[23px] text-green-600 dark:text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12h4m-2 2v-4M4 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>')
+                ->class($actionButtonClasses)
                 ->tooltip(__('users.actions.assign_admin_role'))
-                ->class('text-amber-500 hover:text-amber-700')
                 ->dispatch('assignAdminRoleAction', ['id' => $user->id]),
+
             Button::add('removeAdminRoleAction')
-                ->slot('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3 3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zm0 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm9-13c-.55 0-1 .45-1 1v7c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3v-7c0-.55-.45-1-1-1s-1 .45-1 1v7c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5v-7c0-.55-.45-1-1-1z"/></svg>')
+                ->slot('<svg class="w-[23px] h-[23px] text-red-600 dark:text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12h4M4 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>')
+                ->class($actionButtonClasses)
                 ->tooltip(__('users.actions.remove_admin_role'))
-                ->class('text-red-500 hover:text-red-700')
                 ->dispatch('removeAdminRoleAction', ['id' => $user->id]),
+
             Button::add('assignWorkerRoleAction')
-                ->slot('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>')
+                ->slot('<svg class="w-[23px] h-[23px] text-green-900 dark:text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-linejoin="round" stroke-width="2" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6.25v3.5m1.75-1.75h-3.5"/>
+                </svg>')
+                ->class($actionButtonClasses)
                 ->tooltip(__('users.actions.assign_worker_role'))
-                ->class('text-blue-500 hover:text-blue-700')
                 ->dispatch('assignWorkerRoleAction', ['id' => $user->id]),
+
             Button::add('removeWorkerRoleAction')
-                ->slot('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6l1.4 1.4L12 13.4l5.6 5.6 1.4-1.4L13.4 12z"/></svg>')
+                ->slot('<svg class="w-[23px] h-[23px] text-red-600 dark:text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-linejoin="round" stroke-width="2" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.25 7.75h4.5"/>
+                </svg>')
+                ->class($actionButtonClasses)
                 ->tooltip(__('users.actions.remove_worker_role'))
-                ->class('text-red-500 hover:text-red-700')
                 ->dispatch('removeWorkerRoleAction', ['id' => $user->id]),
         ];
     }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class BoardGame extends Model
 {
@@ -50,5 +51,9 @@ class BoardGame extends Model
         return $this->belongsToMany(Genre::class, 'board_games_genres')
             ->withTrashed()
             ->orderBy('name');
+    }
+    public function favoritedBy(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'favorite_board_games');
     }
 }

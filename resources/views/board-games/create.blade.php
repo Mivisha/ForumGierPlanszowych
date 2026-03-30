@@ -63,7 +63,7 @@
                 <flux:error name="image" />
             </flux:field>
 
-            <flux:field>
+            <!-- <flux:field>
                 <flux:label>{{ __('boardgames.attributes.genres') }}</flux:label>
                 <select name="genres[]" multiple class="flux-input">
                     @foreach($genres as $genre)
@@ -73,8 +73,56 @@
                         </option>
                     @endforeach
                 </select>
-                <flux:error name="genres" />
-            </flux:field>
+                <flux:error name="genres" /> -->
+                
+            <!-- </flux:field> -->
+            <flux:field>
+            <div class="genre-picker__intro">
+                <flux:label>{{ __('boardgames.attributes.genres') }}</flux:label>
+                <p class="genre-picker__hint">Wybierz gatunki, aby dopasować klimat gry.</p>
+            </div>
+        
+            <div class="genre-flow" data-genre-select>
+                <div class="genre-dropdown">
+                    <button type="button" class="genre-dropdown__trigger" data-genre-toggle>
+                        {{ __('boardgames.form.choose_genres') }}
+                        <span class="genre-dropdown__chevron" aria-hidden="true"></span>
+                    </button>
+        
+                    <div class="genre-dropdown__panel" data-genre-panel hidden>
+                        <ul class="genre-dropdown__list">
+                            @foreach($genres as $genre)
+                                @php($inputId = 'genre-' . $genre->id)
+                                <li>
+                                    <label class="genre-dropdown__item" for="{{ $inputId }}">
+                                        <input
+                                            id="{{ $inputId }}"
+                                            type="checkbox"
+                                            name="genres[]"
+                                            value="{{ $genre->id }}"
+                                            class="genre-dropdown__checkbox"
+                                            data-genre-label="{{ $genre->name }}"
+                                            {{ in_array($genre->id, old('genres', []), true) ? 'checked' : '' }}                                        />
+                                        <span>{{ $genre->name }}</span>
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="genre-selection" data-genre-selected>
+                    <div class="genre-selection__header">
+                        <p class="genre-selection__title">Wybrane gatunki</p>
+                        <span class="genre-selection__count" data-selected-count>0</span>
+                    </div>
+                    <div class="genre-selection__list" data-selected-list></div>
+                    <p class="genre-selection__empty" data-selected-empty>Brak wybranych gatunków.</p>
+                </div>
+            </div>
+        
+            <flux:error name="genres" />
+        </flux:field>
 
             <div class="flex justify-end gap-4 mt-6">
                 <flux:button href="{{ route('board-games.index') }}" variant="ghost">{{ __('boardgames.form.cancel') }}</flux:button>
@@ -82,4 +130,5 @@
             </div>
         </form>
     </section>
+    @include('board-games.partials.genre-picker-script')
 </x-layouts.app>

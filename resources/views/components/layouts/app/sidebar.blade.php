@@ -16,6 +16,11 @@
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </flux:navlist.item>
+                    @auth 
+                        <flux:navlist.item icon="heart" :href="route('favorites.index')" :current="request()->routeIs('favorites.index')" wire:navigate>
+                            {{ __('Ulubione') }}
+                        </flux:navlist.item>
+                    @endauth
                     @can('viewAny', App\Models\User::class)
                         <flux:navlist.item icon="user" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>
                             {{ __('Users') }}
